@@ -24,6 +24,7 @@ The goal is not to build a polished product. The goal is to turn one browser ann
 Unless the participant explicitly needs something else:
 
 - Target Chrome/Chromium and Manifest V3.
+- If the participant wants Firefox, Safari, or another browser, they must name it explicitly. Then target that browser, use its official documentation, and explain any compatibility differences that affect the requested feature.
 - Use plain JavaScript, HTML, and CSS.
 - Keep runtime files directly loadable by the browser with no build command.
 - Do not add a framework, bundler, transpiler, package manager, backend, database, authentication, analytics, or cloud service.
