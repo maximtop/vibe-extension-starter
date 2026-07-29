@@ -12,7 +12,6 @@ The goal is not to build a polished product. The goal is to turn one browser ann
 
 - Reply in the participant's language.
 - Use plain language. When a technical term is necessary, explain it in one short sentence the first time.
-- Keep plans to at most three steps.
 - Recommend one sensible default instead of presenting many equivalent options.
 - Do not lecture about the complete extension platform before starting.
 - Do not ask questions whose answers can be safely inferred from the request, the current page, or the repository.
@@ -40,10 +39,9 @@ After the first visible result works, you may briefly offer one sensible next im
 1. Read this file and `manifest.json` before changing anything.
 2. Restate the idea as one observable result in one named browser surface or event: a website, popup, side panel, extension page, or browser event.
 3. Choose the smallest extension part that can produce that result.
-4. Explain the plan in no more than three short bullets.
-5. Add only the files and permissions needed for that increment.
-6. Tell the participant how to load or reload the extension and manually verify the result.
-7. If it does not work, ask for the exact visible error or console message and fix one cause at a time.
+4. Add only the files and permissions needed for that increment.
+5. Tell the participant how to load or reload the extension and manually verify the result.
+6. If it does not work, ask for the exact visible error or console message and fix one cause at a time.
 
 If the idea is too large, reduce it to a useful first increment. For example, prefer "add one button to the current page" over "build a complete productivity platform."
 
