@@ -68,6 +68,8 @@ Rules:
 - Treat Native Messaging as a separate advanced project. Explain the installation and security cost and ask for confirmation before adding it.
 - For network-request inspection, use `webRequest` only for hosts the feature genuinely needs. In Manifest V3, prefer `declarativeNetRequest` for blocking, redirecting, or modifying requests.
 - `chrome.proxy` controls Chrome's proxy configuration. The `vpnProvider` extension API works only on ChromeOS; a desktop VPN normally requires a separate native application.
+- `chrome.tabs.captureVisibleTab()` captures only the currently visible area. A full-page screenshot needs additional logic, such as scrolling through the page, taking multiple captures, and stitching them with Canvas. Explain the limitations on dynamic or fixed-position content.
+- Use Canvas in an extension page or an offscreen document to crop, stitch, resize, annotate, or export captured images. Add the `offscreen` permission only when a hidden document is actually necessary.
 
 ## Manifest and permissions
 
@@ -170,6 +172,8 @@ Read the relevant official page before using an unfamiliar API or permission. Pr
 - [`chrome.declarativeNetRequest`](https://developer.chrome.com/docs/extensions/reference/api/declarativeNetRequest)
 - [`chrome.proxy`](https://developer.chrome.com/docs/extensions/reference/api/proxy)
 - [`chrome.vpnProvider` (ChromeOS only)](https://developer.chrome.com/docs/extensions/reference/api/vpnProvider)
+- [`chrome.tabs.captureVisibleTab`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-captureVisibleTab)
+- [`chrome.offscreen`](https://developer.chrome.com/docs/extensions/reference/api/offscreen)
 - [Native Messaging](https://developer.chrome.com/docs/extensions/develop/concepts/native-messaging)
 - [Security guidance](https://developer.chrome.com/docs/extensions/develop/security-privacy/stay-secure)
 - [Privacy guidance](https://developer.chrome.com/docs/extensions/develop/security-privacy/user-privacy)
