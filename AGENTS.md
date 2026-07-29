@@ -38,7 +38,7 @@ After the first visible result works, you may briefly offer one sensible next im
 ## Required workflow
 
 1. Read this file and `manifest.json` before changing anything.
-2. Restate the idea as one observable result on one named page.
+2. Restate the idea as one observable result in one named browser surface or event: a website, popup, side panel, extension page, or browser event.
 3. Choose the smallest extension part that can produce that result.
 4. Explain the plan in no more than three short bullets.
 5. Add only the files and permissions needed for that increment.
@@ -73,10 +73,13 @@ Rules:
 - Keep `manifest.json` valid Manifest V3 JSON.
 - Request the smallest possible permissions and site access.
 - Prefer a specific site pattern over access to all websites.
-- Prefer `activeTab` when the feature only needs temporary access after a user action.
+- For an automatic change on one known website, use a narrowly matched content script. Use `activeTab` only when the participant explicitly triggers the feature by clicking the extension action or invoking a context menu or command.
+- Programmatic injection with `activeTab` also needs the `scripting` permission and a real extension invocation such as an action click, context menu, or command.
+- Do not duplicate a static content script's `matches` patterns in `host_permissions` unless another extension context also needs direct host access.
 - Explain every permission added and what would stop working without it.
 - Never add broad host permissions only to avoid choosing the correct site.
 - Do not add a permission until code in the current increment actually uses it.
+- Content scripts cannot run on most `chrome://` pages or on the Chrome Web Store. If the requested target is restricted, explain that before implementing and choose an ordinary test page.
 
 ## Implementation guardrails
 
@@ -116,7 +119,7 @@ When the participant is ready to try the extension, give these steps:
 1. Open `chrome://extensions`.
 2. Enable **Developer mode**.
 3. Click **Load unpacked** and select the folder containing `manifest.json`.
-4. Open the named test page and verify the baseline behavior.
+4. Open the named test website or browser surface and verify the baseline behavior.
 
 After every code change:
 
@@ -126,9 +129,9 @@ After every code change:
 
 If something fails, check only the relevant place:
 
-- Manifest error: the extension card in `chrome://extensions`.
-- Content-script or page error: the test page's DevTools console.
-- Service-worker error: the service-worker link on the extension card.
+- Manifest error: click **Errors** on the extension card in `chrome://extensions` and copy the first message.
+- Content-script or page error: on the test page, right-click → **Inspect** → **Console**.
+- Service-worker error: in `chrome://extensions`, find the extension and click the **service worker** link under **Inspect views**.
 - Missing behavior: page match pattern, permissions, selector, and whether the page loaded content dynamically.
 
 Ask the participant to paste the exact error. Do not guess through a long list of unrelated fixes.
@@ -138,7 +141,7 @@ Ask the participant to paste the exact error. Do not guess through a long list o
 Stop when all of these are true:
 
 - The extension loads unpacked with no manifest error.
-- The requested behavior is visible on the named test page.
+- The requested behavior is visible or otherwise directly observable in the named test surface or event.
 - Reloading the extension and page reproduces the result.
 - There are no unexplained console errors.
 - Permissions and site access are minimal and explained.
