@@ -66,6 +66,8 @@ Rules:
 - If multiple parts are needed, connect them with a small explicit message shape.
 - A Manifest V3 service worker is not a permanently running background page. Persist required state in `chrome.storage` rather than relying on global variables.
 - Treat Native Messaging as a separate advanced project. Explain the installation and security cost and ask for confirmation before adding it.
+- For network-request inspection, use `webRequest` only for hosts the feature genuinely needs. In Manifest V3, prefer `declarativeNetRequest` for blocking, redirecting, or modifying requests.
+- `chrome.proxy` controls Chrome's proxy configuration. The `vpnProvider` extension API works only on ChromeOS; a desktop VPN normally requires a separate native application.
 
 ## Manifest and permissions
 
@@ -164,6 +166,10 @@ Read the relevant official page before using an unfamiliar API or permission. Pr
 - [`chrome.storage`](https://developer.chrome.com/docs/extensions/reference/api/storage)
 - [Match patterns](https://developer.chrome.com/docs/extensions/develop/concepts/match-patterns)
 - [Permissions](https://developer.chrome.com/docs/extensions/develop/concepts/declare-permissions)
+- [`chrome.webRequest`](https://developer.chrome.com/docs/extensions/reference/api/webRequest)
+- [`chrome.declarativeNetRequest`](https://developer.chrome.com/docs/extensions/reference/api/declarativeNetRequest)
+- [`chrome.proxy`](https://developer.chrome.com/docs/extensions/reference/api/proxy)
+- [`chrome.vpnProvider` (ChromeOS only)](https://developer.chrome.com/docs/extensions/reference/api/vpnProvider)
 - [Native Messaging](https://developer.chrome.com/docs/extensions/develop/concepts/native-messaging)
 - [Security guidance](https://developer.chrome.com/docs/extensions/develop/security-privacy/stay-secure)
 - [Privacy guidance](https://developer.chrome.com/docs/extensions/develop/security-privacy/user-privacy)
