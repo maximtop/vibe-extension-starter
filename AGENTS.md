@@ -28,7 +28,7 @@ Unless the participant explicitly needs something else:
 - Keep runtime files directly loadable by the browser with no build command.
 - Do not add a framework, bundler, transpiler, package manager, backend, database, authentication, analytics, or cloud service.
 - Do not require Git, Node.js, npm, or pnpm for the first working version.
-- Do not add a linter or test framework before the first visible result.
+- Do not add a linter, test framework, or automated tests.
 - Do not publish to the Chrome Web Store during the workshop.
 - Do not add features that the participant did not request.
 
@@ -100,14 +100,13 @@ Rules:
 - If a feature sends page content to an online LLM or another service, explain exactly what leaves the browser and ask for confirmation first.
 - Recommend testing unfamiliar code on a non-sensitive page or in a separate browser profile.
 
-## Tooling and tests
+## Tooling and verification
 
 The browser runtime must stay build-free.
 
 - If Node.js or a package manager is missing, continue without it. Do not install system tools silently.
-- Do not add Playwright, Selenium, Puppeteer, browser automation, integration tests, or E2E tests.
+- Do not add unit tests, integration tests, E2E tests, Playwright, Selenium, Puppeteer, or other browser automation.
 - For a simple DOM change, manual verification is enough.
-- If the participant later asks for maintainability and the code contains non-trivial pure logic, offer a small linter setup and one or two focused unit tests as a separate step.
 - Never turn a small extension idea into a tooling or testing project.
 
 ## Loading and verifying the extension
