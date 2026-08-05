@@ -74,6 +74,7 @@ Rules:
 ## Manifest and permissions
 
 - Keep `manifest.json` valid Manifest V3 JSON.
+- Keep the extension `name` and `description` in `manifest.json` in sync with what the extension actually does. When a feature gives the extension a concrete purpose, rename it from the starter placeholder and update the description; never leave `"My Vibe-Coded Extension"` in a finished increment.
 - Request the smallest possible permissions and site access.
 - Prefer a specific site pattern over access to all websites.
 - For an automatic change on one known website, use a narrowly matched content script. Use `activeTab` only when the participant explicitly triggers the feature by clicking the extension action or invoking a context menu or command.
@@ -143,6 +144,7 @@ Ask the participant to paste the exact error. Do not guess through a long list o
 Stop when all of these are true:
 
 - The extension loads unpacked with no manifest error.
+- The extension `name` and `description` in `manifest.json` describe what it actually does (no starter placeholder).
 - The requested behavior is visible or otherwise directly observable in the named test surface or event.
 - Reloading the extension and page reproduces the result.
 - There are no unexplained console errors.
