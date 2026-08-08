@@ -6,6 +6,11 @@ an AI coding agent.
 It intentionally has no framework, build step, package manager, or tests. Start
 with one browser annoyance and ask the agent for the smallest visible result.
 
+## Workshop slides
+
+[How to vibe-code your own browser extension](https://docs.google.com/presentation/d/1dmGO9mRsZkxoAsaXVFD39EdQ4gLamleBLnX2DALNcug/edit?usp=sharing)
+— the participant version without speaker notes.
+
 ## Start in five minutes
 
 1. Get the repository:
@@ -66,4 +71,3 @@ Useful official guides:
 
 - [Chrome Extensions: Get started](https://developer.chrome.com/docs/extensions/get-started)
 - [Hello World and Load unpacked](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world)
-
